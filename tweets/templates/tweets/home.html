@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Twitter</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'tweets/main.css' %}">
+</head>
+
+
+<body>
+
+	<div id="page">
+	<div class="standout">
+		<h1>Twitter</h1>
+		<p>Login to extract Tweets from last 7 days</p>
+	</div>
+
+	<div class="press"><a href="/login"><button type="button" class="btn btn-outline-primary btn-lg">Click Here to Extract User Data</button></a></div>
+	
+<script type="text/javascript" src="{% static 'tweets/script.js' %}"></script>
+
+</body>
+
+
+</html>

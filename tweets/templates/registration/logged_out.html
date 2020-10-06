@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<style type="text/css">
+		
+		.pad{
+			padding-right: 25px; 
+		}
+		.pd{
+			padding-left: 80px;
+			padding-right: 80px;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="jumbotron">
+  	<h1 class="display-4 text-center">You Have Been Logged-out</h1>
+  	<p class="lead text-center">Login Again to See Your Timeline</p>
+  	<hr class="my-4">
+  	<p class="font-italic">Click Here To Go Back To Home Page</p>
+  	<p class="lead">
+    <a class="btn btn-outline-info btn-lg" href="/" role="button">Home</a>
+  	</p>
+	</div>
+
+	<h2 class="text-center">Click Below To Login</h2>
+	<hr class="my-4">
+
+	<div class="text-center">
+      <a href="{% url 'tweets:auth' %}">
+      	 	<button type="button" class="btn btn-info btn-lg pd"><i class="fa fa-twitter pad"></i>Login With Twitter</button>
+      </a>
+		
+    </div>
+</body>
+</html>

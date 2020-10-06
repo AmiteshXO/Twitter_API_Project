@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style type="text/css">
+		
+			body{
+			background-color: #2f9fe0; 
+		}
+
+		.pdd{
+			padding-left: 20px;
+			padding-right: 10px;
+		}
+
+		.rnd{
+			padding-top: 30px;
+			margin-right: 300px;
+			margin-left: 300px;	
+
+		}
+
+		.gg{
+			border-radius: 25px;
+			background-color: #DED8D8;
+		}
+
+		.tw{
+			padding-left: 630px;
+		}	
+
+		.mnbx1 {
+		  float: left;
+		  width: 430px;
+		  height: 300px;
+		  padding: 50px;
+		  margin: 20px;
+		  background-color: #DED8D8;
+		  padding-left: 50px;
+		}
+		.mnbx2 {
+		  float: left;
+		  width: 430px;
+		  height: 300px;
+		  padding: 50px;
+		  margin: 20px;
+		  background-color: #DED8D8; 
+		  float: left;
+		  padding-left: 50px;
+		}
+
+		.lol{
+			padding-left: 90px
+		}
+
+	</style>
+
+</head>
+<body>
+		
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  		<a class="navbar-brand" href="#"><i class="fa fa-twitter pdd"></i> Twitter Dashboard </a>
+
+	  		<div class="collapse navbar-collapse" id="navbarText">
+		   		 <ul class="navbar-nav mr-auto">
+			     	 <li class="nav-item active">
+			       	 <a class="nav-link" href="{% url 'tweets:logout' %}">Logout<span class="sr-only">(current)</span></a>
+			     	 </li>
+		    	</ul>
+		    	<span class="navbar-text">
+		      		Welcome {{request.session.name}}
+		   		 </span>
+	  		</div>
+		</nav>
+<!-- ---------------------------------------------------------------------------------------------------------------------------
+ -->
+  				
+
+       <div class="rnd">
+
+		<div class="jumbotron gg">
+			<h1 class="display-4 text-center font-weight-bold">{{request.session.user}}'s Timeline</h1>
+			<p class="lead text-center"> Here Shows the Last 7 days Tweets </p>
+		</div>
+		
+		</div>
+
+		<div class="container lol">
+			<div class="mnbx1 gg font-weight-bold">
+
+				<h3 class="text-center" style="padding-bottom: 25px;">Top 3 Domains on Twitter</h3>
+				<ul>
+					{% for x in top_dom %}
+					<li> www.{{x.tweet_domain}}.com --> ( {{x.total}} ) </li>
+					{% endfor %}
+				</ul>
+
+			</div>
+			<div class="mnbx2 gg font-weight-bold">
+			 		
+				<h3 class="text-center" style="padding-bottom: 25px;">Top 3 Authors on Twitter</h3>
+				<ul>
+					{% for x in top_auth %}
+					<li> @{{x.tweet_person__person}} Shared ( {{x.total}} ) Tweets </li>
+					{% endfor %}
+				</ul>
+
+			</div>
+		</div>
+
+
+
+		<div class="tw" style="padding-top: 55px;">
+		{% for x in arr %}
+			<div> {{x|safe}} </div>
+		{% endfor %}
+		</div>
+   
+
+<!-- -----------------------------------------------------------------------------------------------------------------------------
+ --></body>
+</html>
